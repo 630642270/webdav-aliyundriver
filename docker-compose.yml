@@ -1,0 +1,17 @@
+version: '3'
+services:
+  # https://github.com/zxbu/webdav-aliyundriver
+  webdav-aliyundriver:
+    image: zx5253/webdav-aliyundriver
+    container_name: webdav-aliyundriver
+    restart: always
+    volumes:
+      - /etc/localtime:/etc/localtime
+      - ./docker/etc/aliyun-driver/:/etc/aliyun-driver/
+    ports:
+      - "8080:8080"
+    tty: true
+    environment:
+      - TZ=Asia/Shanghai
+      - ALIYUNDRIVE_REFRESH_TOKEN=<change me>
+      - ALIYUNDRIVE_AUTH_PASSWORD=<change me>
